@@ -1,0 +1,33 @@
+<!-- Assuming the Resource is a User. And not Admin User.-->
+<div class="container">
+  <div class="omb_login">
+    <h3 class="omb_authTitle">Sign Up or <%= link_to "Login", new_user_session_path(resource) %></h3>
+    <div class="row omb_row-sm-offset-3">
+      <div class="col-xs-12 col-sm-6">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'omb_loginForm', autocomplete: 'off'} ) do |f| %>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Name' %>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+              <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address' %>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+              <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
+            </div>
+            <span class="help-block"></span>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        <% end %>
+      </div>
+    </div>
+    <div class="row omb_row-sm-offset-3">
+      <div class="col-xs-12 col-sm-3">
+        <p class="omb_forgotPwd">
+          <a href="<%= new_password_path(resource)%>">Forgot password?</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

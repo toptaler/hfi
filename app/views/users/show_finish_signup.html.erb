@@ -1,0 +1,16 @@
+<div id="add-email" class="container">
+  <h1>Add Email</h1>
+  <%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), :html => { role: 'form'}) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <div class="controls">
+          <%= f.text_field :name, :autofocus => true, :value => '', class: 'form-control', placeholder: 'Example: email@me.com' %>
+          <%= f.text_field :email, :value => '', class: 'form-control', placeholder: 'Your Name' %>
+          <p class="help-block">Please confirm your email address and name. No spam.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Continue', :class => 'btn btn-primary' %>
+      </div>
+  <% end %>
+</div>

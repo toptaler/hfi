@@ -1,0 +1,5 @@
+.comment
+  = image_tag "avatars/#{comment.user.id}.jpg", width: '32', height: '32', align: 'left'
+  %p{style: 'margin-bottom: 8px'}
+    = link_to comment.user.name, '#'
+    = comment.content

@@ -1,0 +1,56 @@
+<% @page = :login%>
+<!-- Assuming the Resource is a User. And not Admin User.-->
+<div class="container">
+  <div class="omb_login">
+    <h3 class="omb_authTitle">Login or <%= link_to "Sign up", new_registration_path(resource) %></h3>
+    <div class="row omb_row-sm-offset-6 omb_socialButtons">
+      <div class="col-xs-4 col-sm-2">
+        <a href="<%= user_omniauth_authorize_path(:facebook)%>" class="btn btn-lg btn-block omb_btn-facebook">
+          <i class="fa fa-facebook visible-xs"></i>
+          <span class="hidden-xs">Facebook</span>
+        </a>
+      </div>
+      <div class="col-xs-4 col-sm-2">
+        <a href="<%= user_omniauth_authorize_path(:twitter)%>" class="btn btn-lg btn-block omb_btn-twitter">
+          <i class="fa fa-twitter visible-xs"></i>
+          <span class="hidden-xs">Twitter</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="row omb_row-sm-offset-3 omb_loginOr">
+      <div class="col-xs-12 col-sm-6">
+        <hr class="omb_hrOr">
+        <span class="omb_spanOr">or</span>
+      </div>
+    </div>
+
+    <div class="row omb_row-sm-offset-3">
+      <div class="col-xs-12 col-sm-6">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'omb_loginForm', autocomplete: 'off'} ) do |f| %>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email Address' %>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+              <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+              <%= f.check_box :remember_me %>&nbsp;<%= f.label :remember_me %>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <% end %>
+      </div>
+    </div>
+    <div class="row omb_row-sm-offset-3">
+      <div class="col-xs-12 col-sm-3">
+        <p class="omb_forgotPwd">
+          <a href="<%= new_password_path(resource)%>">Forgot password?</a>
+        </p>
+      </div>
+    </div>
+</div>
+</div>

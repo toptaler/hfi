@@ -1,0 +1,24 @@
+.container.post-detail
+  .row
+    .col-md-8
+      .image
+        = image_tag @post.image_url
+      .share{style: 'margin-top: 4px;'}
+        = image_tag 'share.jpg'
+      .description
+        = GitHub::Markdown.render( @post.content  ).html_safe
+    .col-md-4.right-side
+      .row
+        .col-md-9
+          .title= @post.title
+        .col-md-3.pull-right
+          .vote
+            = link_to "", post_vote_path(@post), :method => :post, :"data-type" => :json, :remote => true, :"data-post-id" => @post.id, :authenticity_token => form_authenticity_token, class: 'vote glyphicon glyphicon-arrow-up'
+            %span.votes #{@post.votes.to_i}
+
+      .post-comments
+        = render partial: 'posts/comment', collection: @post.comments
+      .new-comment
+        %form{role: 'form'}
+          = text_area_tag :new_comment, '', placeholder: 'Leave a Comment', rows: '5', class: 'form-control'
+          = submit_tag 'Send', class: 'btn btn-success pull-right', style: 'margin-top: 5px;'
