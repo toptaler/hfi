@@ -3,7 +3,14 @@
   -webkit-box-shadow: 0 0 10px #eee;
   box-shadow: 0 0 10px #eee;
   height: 160px; /*make each card exactly same height*/
+  .upvote-and-featured-image{
+    position: relative;
+  }
   .upvote{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
     a{
       display: block;
       text-decoration: none;
@@ -11,6 +18,11 @@
     }
     font-weight: bold;
     text-align: center;
+  }
+  .featured-image{
+    position: absolute;
+    left: 40px;
+    top: 0;
   }
   .campaign-info{
     height: 160px;
