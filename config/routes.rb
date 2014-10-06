@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'login', to: 'login#index'
   post 'logout', to: 'login#logout', as: :logout_path
+
   get '/users/:id/finish_signup' => 'users#show_finish_signup', :as => :show_finish_signup
   patch '/users/:id/finish_signup' => 'users#finish_signup', :as => :finish_signup
+  resources :campaigns
+  get 'crowdreview' => 'campaigns#crowdreview_list', :as => :crowdreview_list
+  post 'toggle_vote/campaign/:id/' => 'campaigns#toggle_vote', as: :campaign_toggle_vote
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,7 +1,7 @@
 !!! 5
 %head
   %title HealthFundIt
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = stylesheet_link_tag    'application', media: 'all'
   = csrf_meta_tags
 
 %body
@@ -14,7 +14,7 @@
           %li{class: @page == :crowd_review ? 'active' : ''}= link_to 'Crowd Review', root_path
           %li{class: @page == :discover ? 'active' : ''}= link_to 'Discover', root_path
           %li{class: @page == :how_it_works ? 'active' : ''}= link_to 'How it Works', root_path
-          %li{class: @page == :start ? 'active' : ''}= link_to 'Start', root_path
+          %li{class: @page == :start ? 'active' : ''}= link_to 'Start', new_campaign_path
         %ul.nav.navbar-nav.pull-right
           - if user_signed_in?
             %li= link_to current_user.name, root_path
@@ -27,4 +27,4 @@
     = render 'layouts/messages'
     = yield
 
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application'

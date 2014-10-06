@@ -1,0 +1,38 @@
+.cr-card{
+  -moz-box-shadow: 0 0 10px #eee;
+  -webkit-box-shadow: 0 0 10px #eee;
+  box-shadow: 0 0 10px #eee;
+  height: 160px; /*make each card exactly same height*/
+  .upvote{
+    a{
+      display: block;
+      text-decoration: none;
+      font-size: 20pt;
+    }
+    font-weight: bold;
+    text-align: center;
+  }
+  .campaign-info{
+    height: 160px;
+    h2.campaign-title{
+      margin-top: 0;
+    }
+    .excerpt{
+      margin-bottom: 20px;
+      height: 70px;
+    }
+    .comments{
+      margin-right: 20px;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .featured-image {
+    display: none;
+  }
+}
+.cr-card:hover{
+  -moz-box-shadow: 0 0 10px #ccc;
+  -webkit-box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px #ccc;
+}

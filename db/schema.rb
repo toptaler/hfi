@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004194140) do
+ActiveRecord::Schema.define(version: 20141006050326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,10 +49,40 @@ ActiveRecord::Schema.define(version: 20141004194140) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "campaign_categories", force: true do |t|
+    t.integer  "campaign_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "campaigns", force: true do |t|
+    t.string   "title"
+    t.text     "brief"
+    t.text     "excerpt"
+    t.text     "summary"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "featured_image_file_name"
+    t.string   "featured_image_content_type"
+    t.integer  "featured_image_file_size"
+    t.datetime "featured_image_updated_at"
+    t.string   "campaign_status"
+    t.integer  "comments_count"
+    t.integer  "votes_count"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", force: true do |t|
-    t.integer "post_id"
     t.text    "content"
     t.integer "user_id"
+    t.integer "campaign_id"
   end
 
   create_table "posts", force: true do |t|
@@ -85,5 +115,12 @@ ActiveRecord::Schema.define(version: 20141004194140) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "votes", force: true do |t|
+    t.integer  "campaign_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

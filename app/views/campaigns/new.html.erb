@@ -1,0 +1,62 @@
+<%= @page = :start %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <%= form_for(@campaign, url: campaigns_path(@campaign), html: {class: 'form-horizontal new-campaign-form', autocomplete: 'off'}) do |f| %>
+        <fieldset>
+          <div id="legend">
+            <legend class="">Start A New Campaign</legend>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <!-- Username -->
+              <label class="control-label col-md-2" for="title">Title</label>
+
+              <div class="col-md-10">
+                <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+                <p class="help-block">Title can be maximum 60 characters.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label class="control-label col-md-2" for="excerpt">Excerpt</label>
+
+              <div class="col-md-10">
+                <%= f.text_area :excerpt, class: 'form-control excerpt-textarea' %>
+                <p class="help-block">Excerpt can be maximum 600 characters.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label class="control-label col-md-2" for="Summary">Summary</label>
+
+              <div class="col-md-10">
+                <%= f.text_area :summary, class: 'form-control summary-textarea' %>
+                <p class="help-block">Summary can be maximum 3000 characters.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label class="control-label col-md-2" for="featured_image">Featured Image</label>
+
+              <div class="col-md-10">
+                <%= f.file_field :featured_image, class: 'form-control' %>
+                <p class="help-block">Minimum Size: 500 x 304px (if uploading higher resolution please maintain an aspect ration of 1.8 (width-to-height))</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <button class="btn btn-success col-md-2 col-md-offset-5">Submit</button>
+            </div>
+          </div>
+        </fieldset>
+    <% end %>
+  </div>
+
+</div>
