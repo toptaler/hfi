@@ -1,0 +1,8 @@
+development:
+ bucket: hfi-development
+ access_key_id: AKIAIZ2IAGTS4AENQAUQ
+ secret_access_key: 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
+test:
+ bucket: hfi-development
+ access_key_id: AKIAI27EQ66M3KXSXBFA
+ secret_access_key: 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

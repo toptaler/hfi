@@ -237,12 +237,12 @@ Devise.setup do |config|
   if Rails.env == "development" || Rails.env == "test"
     config.omniauth :facebook, "653263571358342", "5835c686f7bff088f1027ea481008114"
   else
-    config.omniauth :facebook, "172205676284497", "22b77a4fe001269c952b1a9b6a3b2a15"
+    config.omniauth :facebook, "459914617481802", "988caf544706ea05a5ec71487a2301aa"
   end
   if Rails.env == "development" || Rails.env == "test"
     config.omniauth :twitter, "StXQ8q9Y0YJ1ADsmq4HdWA", "tKCs2pAeGAj0aBVaP8Y5lg9eISBMw4HVuidM2SsWM"
   else
-    config.omniauth :twitter, "ct8lx9jx0fwpNUwIW7RgQ", "KNIT4AySSpLZMKrQ8kY7R4jfTWtetGEGLXMZKBsWs"
+    config.omniauth :twitter, "Eww7uWlCnvC6eEj1UEpSQh8bH", "Y8MLh6M3op57bxQONwZ5lSiGw63ggis2emDtnVjAMtH5oAdeM1"
   end
 
   # ==> Warden configuration
@@ -267,4 +267,7 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.secret_key = '957aaf785b491796b16acfc8b1f2016a758abda633988a89f88856693a1ff9a957112c71f0c3f7ffcfa7239ef2850220e2a9ba831eb34fb199881e675d99b9f5'
+
 end

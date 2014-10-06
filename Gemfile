@@ -50,4 +50,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem "font-awesome-rails" #used by the login page
 gem "paperclip", "~> 4.2"
+gem 'aws-sdk', '~> 1.5.7'
 
