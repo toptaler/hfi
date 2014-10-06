@@ -23,6 +23,9 @@
     position: absolute;
     left: 40px;
     top: 0;
+    img{
+      height: 160px; /*if for any reason the image is bigger, we do not want it to overflow.*/
+    }
   }
   .campaign-info{
     height: 160px;
@@ -32,6 +35,7 @@
     .excerpt{
       margin-bottom: 20px;
       height: 70px;
+      overflow: hidden;
     }
     .comments{
       margin-right: 20px;

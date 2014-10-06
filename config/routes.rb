@@ -3,12 +3,10 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  post 'post/vote/:id' => 'posts#vote', as: :post_vote
   get 'post/detail/:id' => 'posts#detail', as: :post_detail
-  root 'pages#home'
-  get 'login', to: 'login#index'
-  post 'logout', to: 'login#logout', as: :logout_path
 
+
+  root 'campaigns#crowdreview_list'
   get '/users/:id/finish_signup' => 'users#show_finish_signup', :as => :show_finish_signup
   patch '/users/:id/finish_signup' => 'users#finish_signup', :as => :finish_signup
   resources :campaigns

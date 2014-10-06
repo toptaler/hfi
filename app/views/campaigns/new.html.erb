@@ -1,4 +1,4 @@
-<%= @page = :start %>
+<% @page = :start %>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <%= form_for(@campaign, url: campaigns_path(@campaign), html: {class: 'form-horizontal new-campaign-form', autocomplete: 'off'}) do |f| %>
@@ -24,7 +24,7 @@
 
               <div class="col-md-10">
                 <%= f.text_area :excerpt, class: 'form-control excerpt-textarea' %>
-                <p class="help-block">Excerpt can be maximum 600 characters.</p>
+                <p class="help-block">Excerpt can be maximum 400 characters.</p>
               </div>
             </div>
           </div>

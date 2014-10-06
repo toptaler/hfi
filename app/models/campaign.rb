@@ -9,7 +9,7 @@ class Campaign < ActiveRecord::Base
   validates_presence_of :campaign_status, :in => [:draft, :under_crowd_review, :under_offline_review, :live, :goal_met, :goal_not_met]
   #todo use enum for campaign statuses
   validates :title, length: {maximum: 60}, :presence => true
-  validates :excerpt, length: {maximum: 600}, :presence => true
+  validates :excerpt, length: {maximum: 400}, :presence => true
   validates :summary, length: {maximum: 3000}, :presence => true
   validates :featured_image, :presence => true
 
