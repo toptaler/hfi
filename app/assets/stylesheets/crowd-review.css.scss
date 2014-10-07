@@ -2,7 +2,8 @@
   -moz-box-shadow: 0 0 10px #eee;
   -webkit-box-shadow: 0 0 10px #eee;
   box-shadow: 0 0 10px #eee;
-  height: 160px; /*make each card exactly same height*/
+  height: 200px; /*make each card exactly same height*/
+  padding: 0 10px;
   .upvote-and-featured-image{
     position: relative;
   }
@@ -24,11 +25,12 @@
     left: 40px;
     top: 0;
     img{
-      height: 160px; /*if for any reason the image is bigger, we do not want it to overflow.*/
+      height: 200px; /*if for any reason the image is bigger, we do not want it to overflow.*/
     }
   }
   .campaign-info{
-    height: 160px;
+    height: 200px;
+    position: relative;
     h2.campaign-title{
       margin-top: 0;
     }
@@ -38,7 +40,9 @@
       overflow: hidden;
     }
     .comments{
-      margin-right: 20px;
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
     }
   }
 }

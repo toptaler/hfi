@@ -1,0 +1,32 @@
+.campaign-slider{
+  h3.campaign-title{
+    margin-top: 0;
+  }
+  .upvote-container{
+    position: relative;
+    .upvote{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      a{
+        display: block;
+        text-decoration: none;
+        font-size: 20pt;
+      }
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  .excerpt, .summary{
+    text-align: justify;
+  }
+  .slider-top-bar{
+    height: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    .slider-prev, .slider-next{
+      cursor: pointer;
+    }
+  }
+}

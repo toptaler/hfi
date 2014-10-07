@@ -3,12 +3,12 @@
   <div class="col-md-10 col-md-offset-1 cr-card">
     <div class="row">
       <div class="col-md-4 col-xs-2 upvote-and-featured-image">
-        <div class="upvote <%= campaign.has_user_voted(current_user) ? 'upvoted' : ''%>">
+        <div class="upvote <%= campaign.has_user_voted(current_user) ? 'upvoted' : ''%>" data-campaign-id="<%= campaign.id%>">
           <%= link_to '', campaign_toggle_vote_path(campaign.id), :method => :post, 'data-type' => :json, :remote => true, 'data-campaign-id' => campaign.id, :authenticity_token => form_authenticity_token, class: 'glyphicon glyphicon-arrow-up upvote-link' %>
           <span class="upvote-count"><%= campaign.votes_count ?  campaign.votes_count : 0%></span>
         </div>
         <div class="featured-image">
-          <%= link_to image_tag(campaign.featured_image.url(:crowdreview_cropped), width: '288'), post_detail_path(campaign.id), data: {colorbox: true}%>
+          <%= link_to image_tag(campaign.featured_image.url(:crowdreview_cropped), width: '288'), campaign_slider_detail_path(campaign.id), class: 'campaign-slider-img-link'%>
         </div>
       </div>
       <div class="col-md-8 col-xs-10 campaign-info">
@@ -16,7 +16,7 @@
         <div class="excerpt">
           <%= campaign.excerpt %>
         </div>
-        <div class="comments pull-right">
+        <div class="comments">
           <%= campaign.comments_count ?  campaign.comments_count : 0%> comments
         </div>
       </div>

@@ -11,7 +11,6 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
-gem 'colorbox-rails'
 gem 'ffaker'
 gem 'github-markdown', :require => 'github/markdown'
 

@@ -6,7 +6,7 @@ class Campaign < ActiveRecord::Base
   has_attached_file :featured_image,
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials },
-                    :styles => { :slider_cropped => "540x304#", :slider_aspect => "540x304>", :crowdreview_cropped => "288x160#", :crowdreview_aspect => "288x160>"},
+                    :styles => { :slider_cropped => "652x304#", :slider_aspect => "652x304>", :crowdreview_cropped => "288x200#", :crowdreview_aspect => "288x200>"},
                     :default_url => "/images/:style/missing.png" #todo missing image placeholder
   validates_attachment_content_type :featured_image, :content_type => /\Aimage\/.*\Z/
   #reccomended aspect ratio 1.8 (width to height)

@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :authenticate_user!, except: [:crowdreview_list]
+  before_filter :authenticate_user!, except: [:crowdreview_list, :slider_detail]
 
   def crowdreview_list
     @campaigns = Campaign.campaigns_under_review
@@ -56,6 +56,15 @@ class CampaignsController < ApplicationController
       #campaign not found
       render :json => {:errors => 'Campaign seems to have been removed! Please refresh this page and try again.'}, status: :internal_server_error
     end
+  end
+
+  #called by colorbox
+  def slider_detail
+    @campaign = Campaign.find(params[:id])
+    if !@campaign
+      flash[:error] = 'Campaign seems to have been removed! Please refresh this page and try again.'
+    end
+    render :layout => false
   end
 
   private

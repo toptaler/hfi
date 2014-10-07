@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require colorbox-rails
+//= require jquery.colorbox-min
 //= require_tree .

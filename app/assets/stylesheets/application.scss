@@ -6,6 +6,8 @@
 @import "login";  /*Used by login page, sign up page*/
 @import "new-campaign"; /*Used by the start page*/
 @import 'crowd-review';
+@import 'colorbox'; /*Used for the slider in crowd review page*/
+@import "campaign-slider";
 
 /*todo get rid of classes not used, like post*/
 /**/
@@ -28,7 +30,6 @@ a.upvote{
   .description{
     border: 1px solid #e0e0e0;
     margin-left: 20px;
-
   }
 
 }

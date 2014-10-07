@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :campaigns
   get 'crowdreview' => 'campaigns#crowdreview_list', :as => :crowdreview_list
   post 'toggle_vote/campaign/:id/' => 'campaigns#toggle_vote', as: :campaign_toggle_vote
+  get 'slider/campaign/:id' => 'campaigns#slider_detail', as: :campaign_slider_detail
 
 
   # The priority is based upon order of creation: first created -> highest priority.
