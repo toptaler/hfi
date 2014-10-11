@@ -11,7 +11,6 @@
         = link_to 'HealthFundIt', root_path, class: 'navbar-brand'
       .collapse.navbar-collapse.navbar-ex1-collapse
         %ul.nav.navbar-nav
-          %li{class: @page == :crowd_review ? 'active' : ''}= link_to 'Crowd Review', root_path
           %li{class: @page == :discover ? 'active' : ''}= link_to 'Discover', root_path
           %li{class: @page == :how_it_works ? 'active' : ''}= link_to 'How it Works', root_path
           %li{class: @page == :start ? 'active' : ''}= link_to 'Start', new_campaign_path
