@@ -1,18 +1,8 @@
-.cr-card{
-  -moz-box-shadow: 0 0 10px #eee;
-  -webkit-box-shadow: 0 0 10px #eee;
-  box-shadow: 0 0 10px #eee;
-  height: 200px; /*make each card exactly same height*/
-  padding: 0 10px;
-  .upvote-and-featured-image{
-    position: relative;
-  }
-  .upvote{
-    position: absolute;
-    left: 0;
-    top: 0;
+.cr-card {
+  margin-bottom: 20px;
+  .upvote {
     width: 40px;
-    a{
+    a {
       display: block;
       text-decoration: none;
       font-size: 20pt;
@@ -20,38 +10,49 @@
     font-weight: bold;
     text-align: center;
   }
-  .featured-image{
-    position: absolute;
-    left: 40px;
-    top: 0;
-    img{
-      height: 200px; /*if for any reason the image is bigger, we do not want it to overflow.*/
-    }
-  }
-  .campaign-info{
+  .campaign-info {
     height: 200px;
-    position: relative;
-    h2.campaign-title{
-      margin-top: 0;
+    -moz-box-shadow: 0 0 10px #eee;
+    -webkit-box-shadow: 0 0 10px #eee;
+    box-shadow: 0 0 10px #eee;
+    height: 200px; /*make each card exactly same height*/
+    padding: 0;
+    .featured-image {
+      float: left;
+      img {
+        height: 200px; /*if for any reason the image is bigger, we do not want it to overflow.*/
+        width: 288px;
+      }
     }
-    .excerpt{
-      margin-bottom: 20px;
-      height: 70px;
-      overflow: hidden;
-    }
-    .comments{
-      position: absolute;
-      right: 20px;
-      bottom: 10px;
+    .description {
+      float: left;
+      max-width: 550px; /*todo without this the description div moves to next line, haven't figured out why. Might be insightful to understand why this happens.*/
+      padding-left: 10px;
+      h3.campaign-title {
+        margin-top: 10px;
+      }
+      .excerpt {
+        margin-bottom: 20px;
+        height: 80px;
+        overflow: hidden;
+        text-align:justify;
+      }
+      .comments {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+      }
     }
   }
 }
+
 @media (max-width: 1200px) {
   .featured-image {
     display: none;
   }
 }
-.cr-card:hover{
+
+.campaign-info:hover {
   -moz-box-shadow: 0 0 10px #ccc;
   -webkit-box-shadow: 0 0 10px #ccc;
   box-shadow: 0 0 10px #ccc;
