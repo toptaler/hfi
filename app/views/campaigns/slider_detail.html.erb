@@ -14,7 +14,7 @@
         <%= image_tag @campaign.featured_image.url(:slider_cropped) %>
       </div>
       <div class="share-icons">
-
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="healthfundit" data-text="<%= @campaign.title%>">Tweet</a>
       </div>
       <div class="excerpt">
         <%= @campaign.excerpt %>
@@ -48,5 +48,7 @@
   $(function(){
       //add ajax.success listeners to upvote link
       HF.addVoteAjaxListeners('a.slider-upvote-link[data-remote]');
+      // Needed to enable the tweet button. See http://denvycom.com/blog/twitter-button-with-dynamic-custom-data-text-message/
+      twttr.widgets.load();
   });
 </script>
