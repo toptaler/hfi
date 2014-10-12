@@ -1,29 +1,32 @@
 !!! 5
-%head
-  %title HealthFundIt
-  = stylesheet_link_tag    'application', media: 'all'
-  = csrf_meta_tags
+-# Need to include this namespace so that the Facebook XFBML stuff will work in older versions of Internet Explorer
+-# See https://developers.facebook.com/docs/plugins/like-button/
+%html{'xmlns:fb' => "http://ogp.me/ns/fb#"}
+  %head
+    %title HealthFundIt
+    = stylesheet_link_tag    'application', media: 'all'
+    = csrf_meta_tags
 
-%body
-  .navbar.navbar-inverse.navbar-fixed-top
-    .container
-      .navbar-header
-        = link_to 'HealthFundIt', root_path, class: 'navbar-brand'
-      .collapse.navbar-collapse.navbar-ex1-collapse
-        %ul.nav.navbar-nav
-          %li{class: @page == :discover ? 'active' : ''}= link_to 'Discover', root_path
-          %li{class: @page == :how_it_works ? 'active' : ''}= link_to 'How it Works', root_path
-          %li{class: @page == :start ? 'active' : ''}= link_to 'Start', new_campaign_path
-        %ul.nav.navbar-nav.pull-right
-          - if user_signed_in?
-            %li= link_to current_user.name, root_path
-            %li= link_to('Logout', destroy_user_session_path, :method => :delete)
-          - else
-            %li{class: @page == :login ? 'active' : ''}= link_to 'Login', new_user_session_path
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          = link_to 'HealthFundIt', root_path, class: 'navbar-brand'
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          %ul.nav.navbar-nav
+            %li{class: @page == :discover ? 'active' : ''}= link_to 'Discover', root_path
+            %li{class: @page == :how_it_works ? 'active' : ''}= link_to 'How it Works', root_path
+            %li{class: @page == :start ? 'active' : ''}= link_to 'Start', new_campaign_path
+          %ul.nav.navbar-nav.pull-right
+            - if user_signed_in?
+              %li= link_to current_user.name, root_path
+              %li= link_to('Logout', destroy_user_session_path, :method => :delete)
+            - else
+              %li{class: @page == :login ? 'active' : ''}= link_to 'Login', new_user_session_path
 
 
-  .container.main
-    = render 'layouts/messages'
-    = yield
+    .container.main
+      = render 'layouts/messages'
+      = yield
 
-  = javascript_include_tag 'application'
+    = javascript_include_tag 'application'

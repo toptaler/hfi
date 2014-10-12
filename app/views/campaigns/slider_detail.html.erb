@@ -14,8 +14,10 @@
         <%= image_tag @campaign.featured_image.url(:slider_cropped) %>
       </div>
       <div class="share-icons">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="healthfundit" data-text="<%= @campaign.title%>">Tweet</a>
+        <div class="twitter-sharer"><a href="https://twitter.com/share" class="twitter-share-button" data-via="healthfundit" data-text="<%= @campaign.title%>">Tweet</a></div>
+        <div class="facebook-sharer fb-like" data-href="<%= request.original_url %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
       </div>
+      <div class="clearfix"></div>
       <div class="excerpt">
         <%= @campaign.excerpt %>
       </div>
@@ -50,5 +52,7 @@
       HF.addVoteAjaxListeners('a.slider-upvote-link[data-remote]');
       // Needed to enable the tweet button. See http://denvycom.com/blog/twitter-button-with-dynamic-custom-data-text-message/
       twttr.widgets.load();
+      // Needed to make parse identify FB buttons and make them work. See https://developers.facebook.com/docs/plugins/share-button/
+      FB.XFBML.parse();
   });
 </script>

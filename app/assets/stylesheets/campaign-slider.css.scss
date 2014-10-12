@@ -31,5 +31,8 @@
   }
   .share-icons{
     margin-top: 4px;
+    .twitter-sharer, .facebook-sharer{
+      float: left;
+    }
   }
 }
