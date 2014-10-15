@@ -1,0 +1,30 @@
+<!-- see http://bootsnipp.com/snippets/featured/sidebar-navigation-with-scrollspy -->
+<div class="dashboard">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <!--todo get rid of scroll spy?-->
+      <nav id="spy">
+        <ul class="sidebar-nav nav">
+          <li>
+            <a href="<%= user_campaigns_path %>" data-scroll>Campaigns</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+      <div class="content-header">
+        <h1 id="home">
+          <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+          </a>
+        </h1>
+      </div>
+      <div class="page-content inset" data-spy="scroll" data-target="#spy">
+        <%= yield %>
+      </div>
+    </div>
+
+  </div>
+</div>

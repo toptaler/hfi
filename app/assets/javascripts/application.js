@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.colorbox-min
+//= require bootstrap
+//= require jquery.dataTables
+//= require datatables.bootstrap
 //= require_tree .
 

@@ -8,15 +8,15 @@
 @import 'crowd-review';
 @import 'colorbox'; /*Used for the slider in crowd review page*/
 @import "campaign-slider";
-
-
-.container.main {
-  margin-top: 60px;
-}
+@import "dashboard"; /*Used by pages that render using the dahsboard layout*/
+@import "jquery.dataTables";
+@import "jquery.dataTables_themeroller";
+@import "datatables.bootstrap";
 
 .hero-unit {
   padding: 60px;
-  margin-bottom: 30px;
+  margin-top: 60px; /*The margin is from the very top of the page i.e. body. The navbar has a height of 50px. In effect this creates a margin */
+  margin-bottom: 20px;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
@@ -41,4 +41,12 @@
   font-size: 16pt;
   font-weight: normal;
 }
+
+.hero-unit {
+  margin-top: 60px; /*The margin is from the very top of the page i.e. body. The navbar has a height of 50px. In effect this creates a margin */
+}
+.container.main {
+  margin-top: 60px; /*Because navbar is 50px in height this makes sure content on each page starts 10 px below the navbar*/
+}
+
 

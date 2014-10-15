@@ -1,0 +1,46 @@
+<!--
+We have decided to build the entire table server side
+But we could use ajax approach: http://www.datatables.net/examples/data_sources/ajax.html
+Just modify the campaigns_controller#user_campaigns to respond to json in addition to html
+The html response would go to user_campaigns,html.erbs usual which includes this partial
+This partial will instead of building out the entire table, will build only the header and footer
+And make an ajax call to user_campaigns which would then return the json
+//Something like:
+def user_campaigns
+    respond_to do |format|
+      format.html  # user_campaigns.html.erb
+      format.json  { render :json => Campaign.where(user_id: current_user.id)}
+    end
+
+  end
+-->
+<table id="user_campaigns" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>Featured Image</th>
+    <th>Title</th>
+    <th>Excerpt</th>
+    <th>Summary</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <% @campaigns.each do |campaign| %>
+      <tr>
+        <td></td>
+        <td><%= campaign.title %></td>
+        <td><%= campaign.excerpt %></td>
+        <td><%= campaign.summary %></td>
+        <td>Edit Delete</td>
+      </tr>
+  <% end %>
+
+  <tfoot>
+  <tr>
+    <th>Featured Image</th>
+    <th>Title</th>
+    <th>Excerpt</th>
+    <th>Summary</th>
+    <th>Actions</th>
+  </tr>
+  </tfoot>
+</table>

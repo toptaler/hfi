@@ -5,12 +5,30 @@ class CampaignsController < ApplicationController
     @campaigns = Campaign.campaigns_under_review
   end
 
+  def user_campaigns
+    #the html format goes to user_campaigns.html.erb which displays the page, but not the table with the campaigns yet
+    #the page makes an ajax request i.e. the json format request
+    #that is when we return the campaigns that then get displayed
+    #we could have just loaded them at first go with an approach like this: http://www.datatables.net/examples/data_sources/js_array.html
+    #but I want with the  ajax approach http://www.datatables.net/examples/ajax/objects.html
+    #because it felt more elegant
+    respond_to do |format|
+      format.html  {
+        # user_campaigns.html.erb
+        @campaigns = Campaign.where(user_id: current_user.id)
+        render
+      }
+      format.json  { render :json => Campaign.where(user_id: current_user.id)}
+    end
+
+  end
+
   def new
     @campaign = Campaign.new
   end
 
   def create
-    @campaign = Campaign.new(campaign_params)
+    @campaign = current_user.campaigns.build(campaign_params)
     @campaign.campaign_status = :under_crowd_review
     if @campaign.save
       redirect_to :root

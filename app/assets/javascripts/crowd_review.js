@@ -40,7 +40,5 @@ $(
         HF.addVoteAjaxListeners('a.upvote-link[data-remote]');
         //colorbox slider
         $('a.campaign-slider-img-link').colorbox({rel: 'group1', width: '1200px', height: '700px', top: '5%'});
-
-
     }
 );
