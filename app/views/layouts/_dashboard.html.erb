@@ -1,30 +1,14 @@
-<!-- see http://bootsnipp.com/snippets/featured/sidebar-navigation-with-scrollspy -->
-<div class="dashboard">
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-      <!--todo get rid of scroll spy?-->
-      <nav id="spy">
-        <ul class="sidebar-nav nav">
-          <li>
-            <a href="<%= user_campaigns_path %>" data-scroll>Campaigns</a>
-          </li>
-        </ul>
-      </nav>
+<!-- see http://getbootstrap.com/examples/offcanvas/# and  http://blogs.telerik.com/kendoui/posts/13-11-05/creating-a-rwd-off-canvas-layout-with-bootstrap-3 -->
+<div class="row row-offcanvas row-offcanvas-left">
+  <div class="col-md-3 col-sm-3 col-xs-6 sidebar-offcanvas" id="sidebar" role="navigation">
+    <div class="list-group">
+      <a class="list-group-item active" href="<%= user_campaigns_path %>">Campaigns</a>
     </div>
-
-    <!-- Page content -->
-    <div id="page-content-wrapper">
-      <div class="content-header">
-        <h1 id="home">
-          <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
-          </a>
-        </h1>
-      </div>
-      <div class="page-content inset" data-spy="scroll" data-target="#spy">
-        <%= yield %>
-      </div>
-    </div>
-
+  </div>
+  <div class="col-md-9 col-sm-9 col-xs-12">
+    <p class="pull-left visible-xs">
+      <button type="button" class="btn btn-primary btn-xs glyphicon glyphicon-align-justify" data-toggle="offcanvas"></button>
+    </p>
+    <%= yield %>
   </div>
 </div>

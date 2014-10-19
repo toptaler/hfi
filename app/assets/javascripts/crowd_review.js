@@ -3,10 +3,10 @@ HF.addVoteAjaxListeners = function(selector){
     $(selector).bind('ajax:beforeSend', function(){
         //todo show loading icon in place of upvote icon
     }).bind('ajax:success', function(evt, data, status, xhr){
-        //this function is triggered in reponse to upvote action whether it is triggered from the slider or the main page
+        //this function is triggered in response to upvote action whether it is triggered from the slider or the main page
         //we must update not just the upvote-count div that was next to to the upvote link that triggered the action
-        //but update all uvote-count divs for this campaign id anywhere they might be on the screen
-        //this is because if the action is trigerred in the slider,
+        //but update all upvote-count divs for this campaign id anywhere they might be on the screen
+        //this is because if the action is triggered in the slider,
         //when the user exits the slider the upvote count on the home page should have changed to reflect their vote.
 
         var response = $.parseJSON(xhr.responseText);

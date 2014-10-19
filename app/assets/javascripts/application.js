@@ -14,7 +14,13 @@
 //= require jquery_ujs
 //= require jquery.colorbox-min
 //= require bootstrap
+// Datatables is used for the campaigns table in dashboard. http://www.datatables.net/examples/data_sources/dom.html
 //= require jquery.dataTables
+// Datatables.bootstrap makes the datatables adopt bootstrap style. http://www.datatables.net/manual/styling/bootstrap, https://github.com/DataTables/Plugins/tree/master/integration/bootstrap
 //= require datatables.bootstrap
+// offcanvs is used by dashboard to display a responsive sidebar menu*. Copied form: http://getbootstrap.com/examples/offcanvas
+//= require offcanvas
 //= require_tree .
+
+
 

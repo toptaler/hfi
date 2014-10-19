@@ -13,11 +13,12 @@ def user_campaigns
     end
 
   end
+
+  See http://bootsnipp.com/snippets/featured/striped-table-30 for style used in Edit and Delete button links.
 -->
-<table id="user_campaigns" cellspacing="0" width="100%">
+<table id="user_campaigns" cellspacing="0" width="100%" class="table striped">
   <thead>
   <tr>
-    <th>Featured Image</th>
     <th>Title</th>
     <th>Excerpt</th>
     <th>Summary</th>
@@ -26,21 +27,12 @@ def user_campaigns
   </thead>
   <% @campaigns.each do |campaign| %>
       <tr>
-        <td></td>
         <td><%= campaign.title %></td>
-        <td><%= campaign.excerpt %></td>
-        <td><%= campaign.summary %></td>
-        <td>Edit Delete</td>
+        <td><span title="<%= campaign.excerpt %>"><%= campaign.excerpt[0..30].gsub(/\s\w+\s*$/, '...')%></span></td>
+        <td><span title="<%= campaign.summary%>"><%= campaign.summary[0..30].gsub(/\s\w+\s*$/, '...') %></span></td>
+        <td><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+          <%= link_to raw('<span class="glyphicon glyphicon-remove"></span> Del'), campaign_path(campaign), :method => :delete, 'data-type' => :json, :remote => true, :confirm => 'Are you sure?', :class => 'btn btn-danger btn-xs campaign-delete-link'%>
+        </td>
       </tr>
   <% end %>
-
-  <tfoot>
-  <tr>
-    <th>Featured Image</th>
-    <th>Title</th>
-    <th>Excerpt</th>
-    <th>Summary</th>
-    <th>Actions</th>
-  </tr>
-  </tfoot>
 </table>

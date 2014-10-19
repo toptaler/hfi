@@ -50,6 +50,24 @@ class CampaignsController < ApplicationController
 
   end
 
+  def destroy
+    @campaign = Campaign.where(id: params[:id]).first
+    if @campaign
+      @campaign.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to :user_campaigns }
+      format.json {
+        if @campaign && !@campaign.errors.empty?
+          render :json => {errors: @campaign.errors.full_messages.to_sentence}, :status => :internal_server_error
+        else
+          render :json => {:campaign_id => @campaign.id}
+        end
+
+      }
+    end
+  end
+
   #called with json datatype
   def toggle_vote
     @campaign = Campaign.find(params[:id])

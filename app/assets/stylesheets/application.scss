@@ -8,7 +8,7 @@
 @import 'crowd-review';
 @import 'colorbox'; /*Used for the slider in crowd review page*/
 @import "campaign-slider";
-@import "dashboard"; /*Used by pages that render using the dahsboard layout*/
+@import "offcanvas"; /*Used by pages that render using the dahsboard layout, copied from here: http://getbootstrap.com/examples/offcanvas/*/
 @import "jquery.dataTables";
 @import "jquery.dataTables_themeroller";
 @import "datatables.bootstrap";
