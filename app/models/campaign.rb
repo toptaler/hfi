@@ -19,7 +19,7 @@ class Campaign < ActiveRecord::Base
 
 
   def self.campaigns_under_review
-    Campaign.order(created_at: :desc, id: :desc).where(:campaign_status =>  :under_crowd_review)
+    Campaign.order(votes_count: :desc, title: :asc).where(:campaign_status =>  :under_crowd_review)
   end
 
   def has_user_voted(user)
