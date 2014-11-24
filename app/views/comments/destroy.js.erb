@@ -1,0 +1,2 @@
+$('.flash-messages').html("<%= escape_javascript( render(:partial => 'layouts/messages') ) %>");
+$('.comment-list li[data-comment-id=<%= @comment.id %>]').remove();

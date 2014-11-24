@@ -31,7 +31,8 @@
 
 
     .container.main
-      = render 'layouts/messages'
+      .flash-messages
+        = render 'layouts/messages'
       = yield
 
     = javascript_include_tag 'application'

@@ -1,0 +1,12 @@
+$('.flash-messages').html("<%= escape_javascript( render(:partial => 'layouts/messages') ) %>");
+<% if !@comment.errors.any? %>
+    var $commentBox = $('#comment_content', $('.comment-form'));
+    $commentBox.val("");
+    var $commentList = $('.comment-list .list-group');
+    $commentList.prepend("<%= escape_javascript( render(:partial => 'campaigns/slider_comment', :locals => { :comment => @comment } ) ) %>");
+    var $commentCount = $('.comment-list .comment-count');
+    $commentCount.html('<%= @comment.campaign.comments_count %>');
+<% else %>
+<!-- todo -->
+    alert('There were errors during posting of this comment.');
+<%end%>

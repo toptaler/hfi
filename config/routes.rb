@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   root 'campaigns#crowdreview_list'
   get '/users/:id/finish_signup' => 'users#show_finish_signup', :as => :show_finish_signup
   patch '/users/:id/finish_signup' => 'users#finish_signup', :as => :finish_signup
-  resources :campaigns
+  resources :campaigns do
+    resources :comments #currently only the create path is being used
+  end
+  resources :comments #currently only the delete path is being used
   get 'crowdreview' => 'campaigns#crowdreview_list', :as => :crowdreview_list
   post 'toggle_vote/campaign/:id/' => 'campaigns#toggle_vote', as: :campaign_toggle_vote
   get 'slider/campaign/:id' => 'campaigns#slider_detail', as: :campaign_slider_detail

@@ -1,15 +1,20 @@
-.campaign-slider{
-  h3.campaign-title{
+.campaign-slider {
+  .title-and-upvote {
+    //Need to specify height, otherwise the arrow glyphicon overlaps the textarear i.e. it seems the height of the div is calculated without the glyph being taken into consideration
+    //then when the glyph appears, it extends beyond the height of the div
+     height: 47px;
+  }
+  h3.campaign-title {
     margin-top: 0;
   }
-  .upvote-container{
+  .upvote-container {
     position: relative;
-    .upvote{
+    .upvote {
       position: absolute;
       left: 0;
       top: 0;
       width: 40px;
-      a{
+      a {
         display: block;
         text-decoration: none;
         font-size: 20pt;
@@ -18,21 +23,41 @@
       text-align: center;
     }
   }
-  .summary{
+  .summary {
     text-align: justify;
   }
-  .slider-top-bar{
+  .slider-top-bar {
     height: 20px;
     margin-bottom: 20px;
     background-color: #f8f8f8;
-    .slider-prev, .slider-next{
+    .slider-prev, .slider-next {
       cursor: pointer;
     }
   }
-  .share-icons{
+  .share-icons {
     margin-top: 4px;
-    .twitter-sharer, .facebook-sharer{
+    .twitter-sharer, .facebook-sharer {
       float: left;
     }
   }
+  .comment-list{
+    margin-top: 5px;
+    .panel-body { padding-top:0; }
+    .list-group { margin-bottom: 0; }
+    .panel-title { display:inline }
+    .label-info { float: right; }
+    li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+    li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+    .mic-info { color: #666666;font-size: 11px; }
+    .action { margin-top:5px; }
+    .comment-text { font-size: 12px; }
+    .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+  }
+
+}
+
+.campaign-slider.container {
+  // don't let bootstrap control width of container in the slider
+  // slider uses fixed widths, and bootstrap's adjusting of container width makes the content extend beyond the slider
+  width: 1158px;
 }

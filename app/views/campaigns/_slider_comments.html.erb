@@ -1,0 +1,22 @@
+<!--Copied the commenting section from http://www.bootdey.com/snippets/view/Recent-Comments-104 -->
+<div class="row comment-list">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-comment"></span>
+      <h3 class="panel-title">Recent Comments</h3><span class="label label-info comment-count"><%= @campaign.comments_count %></span>
+    </div>
+    <div class="panel-body">
+      <ul class="list-group">
+        <%
+           @campaign.comments.order(:created_at => :desc).each do |comment|
+        %>
+            <%= render 'slider_comment', :comment => comment %>
+        <%
+           end
+        %>
+      </ul>
+      <!--Hiding the more button since we are loading all comments at once at the moment-->
+      <!--<a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a>-->
+    </div>
+  </div>
+</div>

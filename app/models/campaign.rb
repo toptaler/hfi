@@ -2,6 +2,7 @@ class Campaign < ActiveRecord::Base
   belongs_to :user
   has_many :categories, through: :campaign_categories
   has_many :votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_attached_file :featured_image,
                     :storage => :s3,
